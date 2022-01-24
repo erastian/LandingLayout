@@ -1,0 +1,233 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,500&display=swap");
+* {
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+}
+
+*,
+*:before,
+*:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+aside,
+nav,
+footer,
+header,
+section {
+  display: block;
+}
+
+html {
+  font-size: 1.375rem;
+}
+
+html,
+body {
+  height: 100%;
+  min-width: 320;
+}
+
+body {
+  line-height: 1;
+  font-family: "Raleway";
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+input,
+button,
+textarea {
+  font-family: "Raleway";
+  font-size: inherit;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+  background-color: inherit;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: inherit;
+  font-size: inherit;
+}
+
+/*
+&::-webkit-scrollbar {
+	display: none;
+}
+*/
+body {
+  color: #000000;
+}
+body.lock {
+  overflow: hidden;
+}
+
+.wrapper {
+  min-height: 100%;
+  display: grid;
+  overflow: hidden;
+  grid-template-rows: auto 1fr auto;
+}
+[class*=__container] {
+  max-width: 1179px;
+  margin: 0 auto;
+}
+@media (max-width: 81.8125em) {
+  [class*=__container] {
+    max-width: 970px;
+  }
+}
+@media (max-width: 61.99875em) {
+  [class*=__container] {
+    max-width: 750px;
+  }
+}
+@media (max-width: 47.99875em) {
+  [class*=__container] {
+    max-width: none;
+    padding: 0 15px;
+  }
+}
+
+header {
+  height: 300px;
+  background-color: #FF3CAC;
+  background-image: linear-gradient(82.62deg, #847362 -26.47%, #7AABA2 51.45%, #2D9CBA 109.18%);
+}
+header .header__container {
+  height: 100%;
+}
+header .header__container .header__banner {
+  display: flex;
+  justify-content: flex-start;
+  height: 100%;
+}
+header .header__container .header__banner h1 {
+  line-height: 75px;
+  color: #FFFFFF;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.57);
+  font-weight: 300;
+  font-style: normal;
+  margin: auto 0;
+  padding-left: 71px;
+  font-size: 3rem;
+}
+header .header__container .header__banner .banner__icon img {
+  position: absolute;
+  width: 308px;
+  height: 362px;
+  top: -1px;
+  mix-blend-mode: overlay;
+  opacity: 0.43;
+}
+
+/*
+//Burger
+.icon-menu {
+	display: none;
+	@media (max-width: $md3+px) {
+		display: block;
+		position: absolute;
+		top: 18px;
+		right: 10px;
+		width: 30px;
+		height: 18px;
+		cursor: pointer;
+		z-index: 5;
+		span {
+			transition: all 0.3s ease 0s;
+			top: calc(50% - 1px);
+			left: 0px;
+			position: absolute;
+			width: 100%;
+			height: 2px;
+			background-color: #000;
+			&:first-child {
+				top: 0px;
+			}
+			&:last-child {
+				top: auto;
+				bottom: 0px;
+			}
+		}
+		&._active {
+			span {
+				transform: scale(0);
+				&:first-child {
+					transform: rotate(-45deg);
+					top: calc(50% - 1px);
+				}
+				&:last-child {
+					transform: rotate(45deg);
+					bottom: calc(50% - 1px);
+				}
+			}
+		}
+	}
+}
+*/
+nav {
+  background: linear-gradient(90deg, #2C5364 0%, #203A43 51.99%, #0F2027 106.94%);
+}
+nav .nav__container ul {
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+}
+nav .nav__container ul li {
+  display: inline-flex;
+  padding: 10px;
+  line-height: 26px;
+  text-align: right;
+}
+nav .nav__container ul li a {
+  cursor: pointer;
+  color: #FFFFFF;
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 1rem;
+}
+nav .nav__container ul li a:hover {
+  filter: drop-shadow(0 1px 3px #d3d3d3);
+}
+nav .nav__container ul li:last-child {
+  padding-right: 0;
+}

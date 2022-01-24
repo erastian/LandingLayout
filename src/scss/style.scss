@@ -1,0 +1,85 @@
+@use "sass:math";
+
+@import "base/mixins";
+
+// Import fonts =========================================================
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,500&display=swap");
+@import 'base/fonts';
+
+
+// Default font =========================================================
+$fontFamily: "Raleway";
+$fontSize: rem(22);
+
+// Variables =========================================================
+$minWidth: 320;
+$maxWidth: 1440;
+$maxWidthContainer: 1179;
+$containerPadding: 130;
+
+
+// BrakePoints =========================================================
+$md1: math.div($maxWidthContainer + $containerPadding, 16) + em; //Notebooks + landscape tablets
+$md2: math.div(991.98, 16) + em; //Tablets + landscape phones
+$md3: math.div(767.98, 16) + em; //Phones size L
+$md4: math.div(479.98, 16) + em; //Phones size S
+
+
+// Main font color =========================================================
+$mainColor: #000000;
+
+
+// Reset =========================================================
+@import "base/null";
+
+
+// Common params =========================================================
+
+body {
+  color: $mainColor;
+
+  &.lock {
+    overflow: hidden;
+  }
+}
+
+// Wrapper ================================================================
+.wrapper {
+  min-height: 100%;
+  display: grid;
+  overflow: hidden;
+  grid-template-rows: auto 1fr auto;
+
+  .loaded & {
+
+  }
+}
+
+// Brakepoints for containers
+[class*="__container"] {
+  max-width: $maxWidthContainer + px;
+  margin: 0 auto;
+  @media (max-width: $md1) {
+    max-width: 970px;
+  }
+  @media (max-width: $md2) {
+    max-width: 750px;
+  }
+  @media (max-width: $md3) {
+    max-width: none;
+    padding: 0 15px;
+  }
+}
+
+// Responsive for containers
+//[class*=__container] {
+//  max-width: $maxWidthContainer + px;
+//  margin: 0 auto;
+//  box-sizing: content-box;
+//  padding: 0 15px;
+//}
+
+
+// Elements styles
+@import "header";
+@import "nav";

@@ -1,0 +1,36 @@
+nav {
+  background: linear-gradient(90deg, #2C5364 0%, #203A43 51.99%, #0F2027 106.94%);
+
+  .nav__container {
+
+    ul {
+      list-style: none;
+      display: flex;
+      justify-content: flex-end;
+
+      li {
+        display: inline-flex;
+        padding: 10px;
+        line-height: 26px;
+        text-align: right;
+
+
+        a {
+          cursor: pointer;
+          color: #FFFFFF;
+          font-family: $fontFamily;
+          font-style: normal;
+          font-weight: 300;
+          font-size: 1rem;
+
+          &:hover{
+            filter: drop-shadow(0 1px 3px #d3d3d3);
+          }
+        }
+      }
+      li:last-child {
+        padding-right: 0;
+      }
+    }
+  }
+}
