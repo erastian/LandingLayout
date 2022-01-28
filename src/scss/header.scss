@@ -1,10 +1,19 @@
 //====================================================================================================
-header {
+.header {
   height: 300px;
   background-color: #FF3CAC;
   background-image: linear-gradient(82.62deg, #847362 -26.47%, #7AABA2 51.45%, #2D9CBA 109.18%);
+  @media (max-width: $md1) {
+    height: 200px;
+  }
+  @media (max-width: $md2) {
+    height: 100px;
+  }
+  @media (max-width: $md3) {
+    height: 100px;
+  }
 
-  .header__container {
+  &__container {
     height: 100%;
 
     .header__banner {
@@ -20,7 +29,19 @@ header {
         font-style: normal;
         margin: auto 0;
         padding-left: 71px;
-        font-size: 3rem;
+        font-size: 4rem;
+        @media (max-width: $md1) {
+          font-size: 3rem;
+          padding-left: 0;
+        }
+        @media (max-width: $md2) {
+          font-size: 3rem;
+          padding-left: 0;
+        }
+        @media (max-width: $md3) {
+          font-size: 2rem;
+          padding-left: 0;
+        }
       }
 
       .banner__icon {
@@ -28,60 +49,23 @@ header {
         img {
           position: absolute;
           width: 308px;
-          height: 362px;
           top: -1px;
 
           mix-blend-mode: overlay;
           opacity: 0.43;
+
+          @media (max-width: $md1) {
+            width: 206px;
+          }
+          @media (max-width: $md2) {
+            width: 103px;
+          }
+          @media (max-width: $md3) {
+            width: 103px;
+          }
         }
       }
     }
   }
 }
 //====================================================================================================
-
-/*
-//Burger
-.icon-menu {
-	display: none;
-	@media (max-width: $md3+px) {
-		display: block;
-		position: absolute;
-		top: 18px;
-		right: 10px;
-		width: 30px;
-		height: 18px;
-		cursor: pointer;
-		z-index: 5;
-		span {
-			transition: all 0.3s ease 0s;
-			top: calc(50% - 1px);
-			left: 0px;
-			position: absolute;
-			width: 100%;
-			height: 2px;
-			background-color: #000;
-			&:first-child {
-				top: 0px;
-			}
-			&:last-child {
-				top: auto;
-				bottom: 0px;
-			}
-		}
-		&._active {
-			span {
-				transform: scale(0);
-				&:first-child {
-					transform: rotate(-45deg);
-					top: calc(50% - 1px);
-				}
-				&:last-child {
-					transform: rotate(45deg);
-					bottom: calc(50% - 1px);
-				}
-			}
-		}
-	}
-}
-*/

@@ -28,6 +28,8 @@ $md4: math.div(479.98, 16) + em; //Phones size S
 // Main font color =========================================================
 $mainColor: #000000;
 
+// Palette =======================================================
+$backgroundColor: #ffffff;
 
 // Reset =========================================================
 @import "base/null";
@@ -37,6 +39,8 @@ $mainColor: #000000;
 
 body {
   color: $mainColor;
+  background-color: $backgroundColor;
+  font-size: $fontSize;
 
   &.lock {
     overflow: hidden;
@@ -46,9 +50,13 @@ body {
 // Wrapper ================================================================
 .wrapper {
   min-height: 100%;
-  display: grid;
   overflow: hidden;
-  grid-template-rows: auto 1fr auto;
+
+  display: flex;
+  flex-direction: column;
+
+  //display: grid;
+  //grid-template-rows: auto 1fr auto;
 
   .loaded & {
 
@@ -83,3 +91,4 @@ body {
 // Elements styles
 @import "header";
 @import "nav";
+@import "footer";
