@@ -92,3 +92,96 @@ body {
 @import "header";
 @import "nav";
 @import "footer";
+
+
+//Main block =================================================
+
+.main {
+  flex: 1 1 auto;
+}
+
+.section {
+  &__title {
+    font-family: $fontFamily;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 3rem;
+    line-height: 125%;
+    margin: 60px 0 40px 55px;
+  }
+}
+
+.textedSlider {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+
+  &__frame {
+    display: flex;
+    width: 100%;
+  }
+
+  &__image {
+
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    padding-left: 35px;
+  }
+
+  &__title {
+    font-family: $fontFamily;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 2rem;
+    line-height: 125%;
+    text-align: center;
+    margin-bottom: 5px;
+  }
+
+  &__description {
+    font-family: $fontFamily;
+    font-style: normal;
+    font-weight: 300;
+    font-size: rem(22);
+    text-align: justify;
+    text-indent: 10px;
+    line-height: 120%;
+  }
+
+  .sliderControls {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    top: -35px;
+    width: 70px;
+    height: 30px;
+    margin-left: auto;
+
+    .arrow {
+      cursor: pointer;
+
+      &.disabled {
+        cursor: not-allowed;
+        filter: opacity(.5);
+      }
+    }
+
+    img {
+      width: 30px;
+      height: 30px;
+    }
+
+    &__arrowLeft {
+
+    }
+
+    &__arrowRight {
+
+    }
+  }
+}
+
+
