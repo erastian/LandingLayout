@@ -23,18 +23,15 @@
   &__item {
     cursor: pointer;
     color: #FFFFFF;
-    font-family: $fontFamily;
-    font-style: normal;
-    font-weight: 300;
-    font-size: $fontSize;
+    font: normal 300 $fontSize /125% $fontFamily;
     transition: filter 0.3s ease;
 
     &:hover {
-      filter: drop-shadow(0 1px 3px #d3d3d3);
+      filter: drop-shadow(0 1px 4px #d3d3d3);
     }
 
     &._active {
-      filter: drop-shadow(0 1px 3px #d3d3d3);
+      filter: drop-shadow(0 1px 4px #d3d3d3);
     }
   }
 }

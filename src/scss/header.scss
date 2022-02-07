@@ -30,11 +30,9 @@
         line-height: 75px;
         color: #FFFFFF;
         text-shadow: 0 2px 4px rgba(0, 0, 0, 0.57);
-        font-weight: 300;
-        font-style: normal;
+        font: normal 300 4rem /125% $fontFamily;
         margin: auto 0;
         padding-left: 71px;
-        font-size: 4rem;
         @media (max-width: $md1) {
           font-size: 3rem;
           padding-left: 0;

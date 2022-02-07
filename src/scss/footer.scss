@@ -1,10 +1,7 @@
 .footer {
   background: linear-gradient(90deg, #2C5364 0%, #203A43 52.08%, #0F2027 100%);
   color: #ffffff;
-  font-size: $fontSize;
-  font-weight: 300;
-  font-style: normal;
-  line-height: 26px;
+  font: normal 300 $fontSize /125% $fontFamily;
 
   &__container {
     padding: 33px 42px;
@@ -28,7 +25,7 @@
         transition: filter 0.2s ease;
 
         &:hover {
-          filter: drop-shadow(0 1px 3px #d3d3d3);
+          filter: drop-shadow(0 1px 4px #d3d3d3);
         }
       }
     }
