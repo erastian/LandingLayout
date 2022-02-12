@@ -209,6 +209,7 @@ body {
   img {
     width: 100%;
   }
+
   &__textFrame {
     display: flex;
     flex-direction: column;
@@ -220,25 +221,30 @@ body {
     height: 100%;
     top: 0;
     width: 50%;
+
     &-left {
       left: 0;
     }
+
     &-right {
       right: 0;
     }
   }
+
   &__title {
     font: normal 300 2.5rem /125% $fontFamily;
     text-align: center;
     margin: 0 0 20px;
     padding-top: 150px;
   }
+
   &__text {
     font: normal 300 $fontSize /125% $fontFamily;
     text-align: center;
     flex: 0 1 auto;
   }
-  &__controls{
+
+  &__controls {
     display: flex;
     flex: 1 1 auto;
     justify-content: center;
@@ -309,10 +315,10 @@ body {
 }
 
 .wideArticle {
-  margin: 0 0 40px;
+  margin: 0 40px 40px;
 
   &__title {
-    font: normal 300 3rem /125% $fontFamily;
+    font: normal 300 2.5rem /125% $fontFamily;
     text-align: center;
     margin-bottom: 15px;
   }
@@ -326,6 +332,14 @@ body {
       margin-bottom: 10px;
     }
   }
+
+  &__controls {
+    display: flex;
+    flex: 1 1 auto;
+    justify-content: center;
+    align-items: stretch;
+  }
+
 }
 
 .threeRowsImages {
@@ -340,9 +354,74 @@ body {
 
 .imagesGrid {
   display: grid;
-  grid-template: repeat(2,1fr) / repeat(3,1fr);
+  grid-template-columns: 33.33% 33.33% 33.33%;
+  grid-auto-rows: 1fr;
+  margin: 0 0 40px;
+
+  @media (max-width: $md2) {
+    grid-template-columns: 50% 50%;
+  }
 
   &__item {
+    position: relative;
+    height: 390px;
 
+    @media (max-width: $md1) {
+      height: 320px;
+    }
+    @media (max-width: $md2) {
+      height: 375px;
+    }
+
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    &-wide {
+      grid-column: span 2;
+    }
+
+    &-extraWide {
+      grid-column: span 3;
+
+      @media (max-width: $md2) {
+        grid-column: span 2;
+      }
+    }
+
+    &.imagesGrid__article {
+      margin: 0 40px;
+      padding-top: 22px;
+      overflow: hidden;
+
+
+      .imagesGrid__title {
+        font: normal 300 2rem /125% $fontFamily;
+        text-align: center;
+        margin-bottom: 15px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .imagesGrid__text {
+        font: normal 300 $fontSize /125% $fontFamily;
+        text-align: justify;
+        text-indent: 10px;
+        overflow: hidden;
+      }
+
+    }
+
+    &.imagesGrid__slider {
+      overflow: hidden;
+
+    }
   }
+
 }
