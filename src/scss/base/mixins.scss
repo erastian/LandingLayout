@@ -4,8 +4,16 @@ $html-font-size: 16px;
   @return math.div($value, ($value * 0 + 1));
 }
 
+@function prc($pxFirstValue, $pxSecondValue) {
+  @return math.div($pxFirstValue, $pxSecondValue) * 100%;
+}
+
 @function rem($pxValue) {
-  @return #{math.div(stripUnit($pxValue), stripUnit($html-font-size))} + rem;
+  @return math.div(stripUnit($pxValue), stripUnit($html-font-size)) + rem;
+}
+
+@function em($pxValue) {
+  @return math.div(stripUnit($pxValue), stripUnit($html-font-size)) + em;
 }
 
 @mixin font($font_name, $file_name, $weight, $style) {
@@ -16,5 +24,33 @@ $html-font-size: 16px;
     url("../fonts/#{$file_name}.woff") format("woff");
     font-weight: #{$weight};
     font-style: #{$style};
+  }
+}
+
+@mixin adaptiveValue($property, $startSize, $minSize, $type) {
+  $addSize: $startSize - $minSize;
+  @if $type == 1 {
+    //For values LESS than container
+    #{$property}: $startSize + px;
+    @media (max-width: #{$maxWidthContainer + px}) {
+      #{$property}: calc(
+              #{$minSize + px} + #{$addSize} *
+              ((100vw - #{$minWidth + px}) / #{$maxWidthContainer} - #{$minWidth})
+      );
+    }
+  } @else if $type == 2 {
+    //For values BIGGER than container
+    @media (min-width: #{$maxWidthContainer + px}) {
+      #{$property}: calc(
+              #{$minSize + px} + #{$addSize} *
+              ((100vw - #{$minWidth + px}) / #{$maxWidth} - #{$minWidth})
+      );
+    }
+  } @else {
+    //Always
+    #{$property}: calc(
+            #{$minSize + px} + #{$addSize} *
+            ((100vw - #{$minWidth + px}) / #{$maxWidth} - #{$minWidth})
+    )
   }
 }

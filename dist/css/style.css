@@ -92,9 +92,9 @@ h6 {
 body {
   color: #000000;
   background-color: #ffffff;
-  font-size: 1.375rem;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 1.375rem;
 }
 body.lock {
   overflow: hidden;
@@ -590,13 +590,13 @@ body.lock {
 
 .imagesGrid {
   display: grid;
-  grid-template-columns: 33.33% 33.33% 33.33%;
-  grid-auto-rows: 1fr;
+  grid-template: 1fr/repeat(3, 1fr);
   margin: 0 0 40px;
+  grid-auto-flow: dense;
 }
 @media (max-width: 61.99875em) {
   .imagesGrid {
-    grid-template-columns: 50% 50%;
+    grid-template: 1fr/repeat(2, 1fr);
   }
 }
 .imagesGrid__item {
@@ -633,9 +633,9 @@ body.lock {
   }
 }
 .imagesGrid__item.imagesGrid__article {
-  margin: 0 40px;
-  padding-top: 22px;
+  padding: 22px 40px 0;
   overflow: hidden;
+  max-height: calc(100% - 22px);
 }
 .imagesGrid__item.imagesGrid__article .imagesGrid__title {
   font: normal 300 2rem/125% "Raleway";

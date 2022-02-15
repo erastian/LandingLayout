@@ -36,13 +36,16 @@ $backgroundColor: #ffffff;
 
 
 // Common params =========================================================
+html {
+  //font-size: $fontSize;
+}
 
 body {
   color: $mainColor;
   background-color: $backgroundColor;
-  font-size: $fontSize;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: $fontSize;
 
   &.lock {
     overflow: hidden;
@@ -354,12 +357,12 @@ body {
 
 .imagesGrid {
   display: grid;
-  grid-template-columns: 33.33% 33.33% 33.33%;
-  grid-auto-rows: 1fr;
+  grid-template: 1fr / repeat(3, 1fr);
   margin: 0 0 40px;
+  grid-auto-flow: dense;
 
   @media (max-width: $md2) {
-    grid-template-columns: 50% 50%;
+    grid-template: 1fr / repeat(2, 1fr);
   }
 
   &__item {
@@ -395,9 +398,9 @@ body {
     }
 
     &.imagesGrid__article {
-      margin: 0 40px;
-      padding-top: 22px;
+      padding: 22px 40px 0;
       overflow: hidden;
+      max-height: calc(100% - 22px);
 
 
       .imagesGrid__title {
