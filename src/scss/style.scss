@@ -27,6 +27,7 @@ $md4: math.div(479.98, 16) + em; //Phones size S
 
 // Main font color =========================================================
 $mainColor: #000000;
+$secondColor: #FFFFFF;
 
 // Palette =======================================================
 $backgroundColor: #ffffff;
@@ -50,6 +51,10 @@ body {
   &.lock {
     overflow: hidden;
   }
+}
+
+.mb-0 {
+  margin-bottom: 0!important;
 }
 
 // Wrapper ================================================================
@@ -115,21 +120,33 @@ body {
 
 .textedSlider {
   display: flex;
-  flex-direction: column;
   flex: 1 1 auto;
   margin: 0 0 40px;
   position: relative;
+  overflow: hidden;
 
   &__frame {
     display: flex;
-    width: 100%;
+    min-width: 100%;
   }
 
   &__image {
+    flex: 0 0 40%;
+    position: relative;
+    height: 300px;
 
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
   }
 
   &__content {
+    flex: 0 1 60%;
     display: flex;
     flex-direction: column;
     padding-left: 35px;
@@ -178,6 +195,52 @@ body {
 
     }
   }
+
+  @media (max-width: $md1) {
+    &__image {
+      flex: 1 1 100%;
+    }
+    &__content {
+      position: absolute;
+      min-width: 100%;
+      min-height: 100%;
+      top: 0;
+      left: 0;
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+    }
+    &__title {
+      color: $secondColor;
+      background: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(85, 85, 85, 0.6) 55%, rgba(0,0,0,0.7) 100%);
+      text-shadow: 0 0 4px #ffffff;
+      height: 3.5rem;
+      padding: 0.5rem 1rem;
+      z-index: 199;
+    }
+    &__description {
+      color: $secondColor;
+      margin: auto 0;
+      background-color: rgba(0,0,0,.5);
+      padding: 0 2rem;
+      position: absolute;
+      bottom: 0;
+      height: fit-content;
+    }
+    .sliderControls {
+      z-index: 199;
+      bottom: unset;
+      top: .7rem;
+      right: .5rem;
+
+      .arrow {
+        filter: invert(1);
+      }
+      .arrow.disabled {
+        filter: invert(1) opacity(.5);
+      }
+    }
+  }
 }
 
 .quote {
@@ -208,29 +271,68 @@ body {
 .wideImage {
   margin: 0 0 40px;
   position: relative;
+  min-height: 35rem;
 
   img {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   &__textFrame {
     display: flex;
     flex-direction: column;
-    background: rgba(255, 255, 255, 0.8);
-    mix-blend-mode: lighten;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
     position: absolute;
     height: 100%;
     top: 0;
-    width: 50%;
+    z-index: 99;
+
+
+    &-blurred {
+      background: rgba(255, 255, 255, 0.8);
+      mix-blend-mode: lighten;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    &-full {
+      width: 100%;
+      text-align: center;
+
+      & h2 {
+        font: normal 500 4rem/125% $fontFamily;
+        text-shadow: 0px 0px 1px rgba(131, 131, 131, .05);
+        color: transparent;
+        background-color: #FEFEFE;
+        margin: auto;
+        background-clip: text;
+
+        @media (max-width: $md1) {
+          font-size: 3.3rem;
+        }
+        @media (max-width: $md2) {
+          font-size: 2.55rem;
+        }
+        @media (max-width: $md3) {
+          font-size: 2rem;
+        }
+      }
+    }
 
     &-left {
+      width: 50%;
       left: 0;
     }
 
     &-right {
+      width: 50%;
       right: 0;
+    }
+    @media (max-width: $md2) {
+      width: 100%;
     }
   }
 
@@ -280,6 +382,7 @@ body {
     font: normal 300 $fontSize /125% $fontFamily;
     text-indent: 10px;
     margin-bottom: 15px;
+    text-align: justify;
   }
 
   &__controls {
@@ -290,7 +393,28 @@ body {
   }
 
   &__imageBlock {
-    flex: 0 0 50%;
+    flex: 1 0 50%;
+    position: relative;
+
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  @media (max-width: $md2) {
+    flex-direction: column;
+
+    &__textBlock {
+      flex: 0 0 100%;
+    }
+    &__imageBlock {
+      flex: 0 0 100%;
+      min-height: 25rem;
+    }
   }
 }
 
@@ -301,7 +425,24 @@ body {
   margin: 0 40px 40px;
 
   &__item {
-    flex: 1 0 0%;
+    flex: 1 0 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__image {
+    position: relative;
+    height: 250px;
+    margin: 0 0 22px;
+
+    & img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
   }
 
   &__title {
@@ -314,6 +455,17 @@ body {
     font: normal 300 $fontSize /125% $fontFamily;
     text-align: justify;
     text-indent: 10px;
+    margin: 0 0 22px;
+    flex: 1 1 auto;
+  }
+  &__controls {
+    display: flex;
+    flex-direction: row;
+  }
+
+  @media (max-width: $md2) {
+    flex-direction: column;
+    gap: unset;
   }
 }
 
@@ -351,7 +503,22 @@ body {
   margin: 0 0 40px;
 
   &__image {
-    flex: 1 0 0%;
+    flex: 1 0 33.333%;
+    position: relative;
+    min-height: 20rem;
+
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  @media (max-width: $md2) {
+    flex-direction: column;
+    gap: 2rem;
   }
 }
 
@@ -427,4 +594,69 @@ body {
     }
   }
 
+}
+
+.bookletForm {
+  margin: 0 0 40px;
+
+  &__title {
+    font: normal 300 2rem /125% $fontFamily;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+
+  &__form {
+    width: 50%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__input {
+    border: 1px solid #353535;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    width: 100%;
+    padding: 15px;
+    margin: 0 0 22px;
+
+    &::placeholder {
+      font: normal 300 $fontSize /125% $fontFamily;
+      letter-spacing: -0.035em;
+      text-transform: uppercase;
+      color: #B1B1B1;
+    }
+  }
+}
+
+.map{
+  margin: 0 0 22px;
+  position: relative;
+
+
+  &__frame{
+    position: relative;
+    min-height: 35rem;
+
+    & img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  &__markers {
+    position: absolute;
+    top: 43%;
+    left: 59%;
+    cursor: pointer;
+  }
+  &__logo {
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.3));
+  }
 }

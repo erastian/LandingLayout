@@ -100,6 +100,10 @@ body.lock {
   overflow: hidden;
 }
 
+.mb-0 {
+  margin-bottom: 0 !important;
+}
+
 .wrapper {
   min-height: 100%;
   overflow: hidden;
@@ -180,14 +184,14 @@ body.lock {
   .header__container .header__banner h1 {
     font-size: 3rem;
     padding-left: 0;
-    z-index: 5;
+    z-index: 299;
   }
 }
 @media (max-width: 47.99875em) {
   .header__container .header__banner h1 {
     font-size: 2rem;
     padding-left: 0;
-    z-index: 5;
+    z-index: 299;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -222,7 +226,7 @@ body.lock {
     width: 36px;
     height: 29px;
     cursor: pointer;
-    z-index: 5;
+    z-index: 299;
     align-self: center;
     margin-left: auto;
   }
@@ -301,6 +305,7 @@ body.lock {
     display: flex;
     transition: top 0.3s ease 0s;
     top: 0;
+    z-index: 288;
   }
   .nav__list {
     flex-direction: column;
@@ -365,22 +370,36 @@ body.lock {
 }
 
 .btn {
-  border: 1px solid #353535;
-  border-radius: 5px;
+  display: inline-block;
+  border: 1px solid transparent;
+  border-radius: 0.313rem;
   font: normal 300 1.375rem/125% Raleway;
-  padding: 15px 10px;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
-  transition: box-shadow 0.2s ease;
+  padding: 0.75rem 1.25rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  min-width: 150px;
+}
+.btn img {
+  position: relative;
+  margin: -8px 3px -10px -12px;
 }
 .btn:hover {
-  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.25);
   transition: box-shadow 0.2s ease;
 }
 .btn:active {
-  box-shadow: 0px 0px 100px 100px rgba(164, 164, 164, 0.2) inset;
+  box-shadow: 0 0 100px 100px rgba(164, 164, 164, 0.2) inset;
+}
+.btn.pos-center {
+  margin-left: auto;
+  margin-right: auto;
+}
+.btn.pos-right {
+  margin-left: auto;
 }
 .btn.btn-default {
-  background: white;
+  border-color: #353535;
+  background-color: white;
   color: #000000;
 }
 
@@ -395,16 +414,30 @@ body.lock {
 
 .textedSlider {
   display: flex;
-  flex-direction: column;
   flex: 1 1 auto;
   margin: 0 0 40px;
   position: relative;
+  overflow: hidden;
 }
 .textedSlider__frame {
   display: flex;
+  min-width: 100%;
+}
+.textedSlider__image {
+  flex: 0 0 40%;
+  position: relative;
+  height: 300px;
+}
+.textedSlider__image img {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .textedSlider__content {
+  flex: 0 1 60%;
   display: flex;
   flex-direction: column;
   padding-left: 35px;
@@ -439,6 +472,51 @@ body.lock {
   width: 30px;
   height: 30px;
 }
+@media (max-width: 81.8125em) {
+  .textedSlider__image {
+    flex: 1 1 100%;
+  }
+  .textedSlider__content {
+    position: absolute;
+    min-width: 100%;
+    min-height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+  }
+  .textedSlider__title {
+    color: #FFFFFF;
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0) 0%, rgba(85, 85, 85, 0.6) 55%, rgba(0, 0, 0, 0.7) 100%);
+    text-shadow: 0 0 4px #ffffff;
+    height: 3.5rem;
+    padding: 0.5rem 1rem;
+    z-index: 199;
+  }
+  .textedSlider__description {
+    color: #FFFFFF;
+    margin: auto 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 0 2rem;
+    position: absolute;
+    bottom: 0;
+    height: fit-content;
+  }
+  .textedSlider .sliderControls {
+    z-index: 199;
+    bottom: unset;
+    top: 0.7rem;
+    right: 0.5rem;
+  }
+  .textedSlider .sliderControls .arrow {
+    filter: invert(1);
+  }
+  .textedSlider .sliderControls .arrow.disabled {
+    filter: invert(1) opacity(0.5);
+  }
+}
+
 .quote {
   margin: 0 100px 40px;
   padding-left: 15px;
@@ -463,27 +541,69 @@ body.lock {
 .wideImage {
   margin: 0 0 40px;
   position: relative;
+  min-height: 35rem;
 }
 .wideImage img {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .wideImage__textFrame {
   display: flex;
   flex-direction: column;
+  position: absolute;
+  height: 100%;
+  top: 0;
+  z-index: 99;
+}
+.wideImage__textFrame-blurred {
   background: rgba(255, 255, 255, 0.8);
   mix-blend-mode: lighten;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  position: absolute;
-  height: 100%;
-  top: 0;
-  width: 50%;
+}
+.wideImage__textFrame-full {
+  width: 100%;
+  text-align: center;
+}
+.wideImage__textFrame-full h2 {
+  font: normal 500 4rem/125% "Raleway";
+  text-shadow: 0px 0px 1px rgba(131, 131, 131, 0.05);
+  color: transparent;
+  background-color: #FEFEFE;
+  margin: auto;
+  background-clip: text;
+}
+@media (max-width: 81.8125em) {
+  .wideImage__textFrame-full h2 {
+    font-size: 3.3rem;
+  }
+}
+@media (max-width: 61.99875em) {
+  .wideImage__textFrame-full h2 {
+    font-size: 2.55rem;
+  }
+}
+@media (max-width: 47.99875em) {
+  .wideImage__textFrame-full h2 {
+    font-size: 2rem;
+  }
 }
 .wideImage__textFrame-left {
+  width: 50%;
   left: 0;
 }
 .wideImage__textFrame-right {
+  width: 50%;
   right: 0;
+}
+@media (max-width: 61.99875em) {
+  .wideImage__textFrame {
+    width: 100%;
+  }
 }
 .wideImage__title {
   font: normal 300 2.5rem/125% "Raleway";
@@ -525,6 +645,7 @@ body.lock {
   font: normal 300 1.375rem/125% "Raleway";
   text-indent: 10px;
   margin-bottom: 15px;
+  text-align: justify;
 }
 .halfTextImage__controls {
   display: flex;
@@ -533,7 +654,28 @@ body.lock {
   align-items: flex-end;
 }
 .halfTextImage__imageBlock {
-  flex: 0 0 50%;
+  flex: 1 0 50%;
+  position: relative;
+}
+.halfTextImage__imageBlock img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+@media (max-width: 61.99875em) {
+  .halfTextImage {
+    flex-direction: column;
+  }
+  .halfTextImage__textBlock {
+    flex: 0 0 100%;
+  }
+  .halfTextImage__imageBlock {
+    flex: 0 0 100%;
+    min-height: 25rem;
+  }
 }
 
 .threeRowsText {
@@ -543,7 +685,22 @@ body.lock {
   margin: 0 40px 40px;
 }
 .threeRowsText__item {
-  flex: 1 0 0%;
+  flex: 1 0 0;
+  display: flex;
+  flex-direction: column;
+}
+.threeRowsText__image {
+  position: relative;
+  height: 250px;
+  margin: 0 0 22px;
+}
+.threeRowsText__image img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .threeRowsText__title {
   font: normal 300 2rem/125% "Raleway";
@@ -554,6 +711,18 @@ body.lock {
   font: normal 300 1.375rem/125% "Raleway";
   text-align: justify;
   text-indent: 10px;
+  margin: 0 0 22px;
+  flex: 1 1 auto;
+}
+.threeRowsText__controls {
+  display: flex;
+  flex-direction: row;
+}
+@media (max-width: 61.99875em) {
+  .threeRowsText {
+    flex-direction: column;
+    gap: unset;
+  }
 }
 
 .wideArticle {
@@ -585,7 +754,23 @@ body.lock {
   margin: 0 0 40px;
 }
 .threeRowsImages__image {
-  flex: 1 0 0%;
+  flex: 1 0 33.333%;
+  position: relative;
+  min-height: 20rem;
+}
+.threeRowsImages__image img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+@media (max-width: 61.99875em) {
+  .threeRowsImages {
+    flex-direction: column;
+    gap: 2rem;
+  }
 }
 
 .imagesGrid {
@@ -653,4 +838,62 @@ body.lock {
 }
 .imagesGrid__item.imagesGrid__slider {
   overflow: hidden;
+}
+
+.bookletForm {
+  margin: 0 0 40px;
+}
+.bookletForm__title {
+  font: normal 300 2rem/125% "Raleway";
+  text-align: center;
+  margin-bottom: 15px;
+}
+.bookletForm__form {
+  width: 50%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+.bookletForm__input {
+  border: 1px solid #353535;
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  width: 100%;
+  padding: 15px;
+  margin: 0 0 22px;
+}
+.bookletForm__input::placeholder {
+  font: normal 300 1.375rem/125% "Raleway";
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+  color: #B1B1B1;
+}
+
+.map {
+  margin: 0 0 22px;
+  position: relative;
+}
+.map__frame {
+  position: relative;
+  min-height: 35rem;
+}
+.map__frame img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.map__markers {
+  position: absolute;
+  top: 43%;
+  left: 59%;
+  cursor: pointer;
+}
+.map__logo {
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+  filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.3));
 }

@@ -40,12 +40,12 @@
         @media (max-width: $md2) {
           font-size: 3rem;
           padding-left: 0;
-          z-index: 5;
+          z-index: 299;
         }
         @media (max-width: $md3) {
           font-size: 2rem;
           padding-left: 0;
-          z-index: 5;
+          z-index: 299;
           overflow: hidden;
           text-overflow: ellipsis;
           white-space: nowrap;
@@ -83,7 +83,7 @@
         width: 36px;
         height: 29px;
         cursor: pointer;
-        z-index: 5;
+        z-index: 299;
         align-self: center;
         margin-left: auto;
 
