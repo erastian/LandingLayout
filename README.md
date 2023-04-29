@@ -1,16 +1,16 @@
 # HTML SCSS Landing layout training project
 <hr>
 
-So, this is a training project.
-The main idea of the project - create responsive layout 
-of some abstract landing page. Used for `html` and `sass` 
+So, this is a training project. <br>
+The main idea of the project - create responsive layout <br>
+of some abstract landing page. Used for `html` and `sass` <br>
 preprocessor, followed by compilation via `gulp` scripts and build
 
 <br>
 
 Main goal - practice with `Figma mockup` and `scss` preprocessor. <br><br><br>
 
-#### [Figma template link](https://www.figma.com/file/2FZi8C1CYuciy60n6LRiBu/LandingLayout?node-id=0%3A1) :link:
+#### [Figma template link](https://www.figma.com/file/2FZi8C1CYuciy60n6LRiBu/LandingLayout?node-id=0%3A1)
 
 <br>
 
@@ -32,7 +32,7 @@ $ npm run dev
 <br>
 
 ###### Funny moments
-Firefox still have some issues with backdrop-filter blur (
+Firefox still have some issues with `backdrop-filter blur` (
 
 <br><br><br><br><br>
 
