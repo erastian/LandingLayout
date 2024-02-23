@@ -11,6 +11,7 @@ preprocessor, followed by compilation via `gulp` scripts and build
 Main goal - practice with `Figma mockup` and `scss` preprocessor. <br><br><br>
 
 #### [Figma template link](https://www.figma.com/file/2FZi8C1CYuciy60n6LRiBu/LandingLayout?node-id=0%3A1)
+#### Demo (**https://erastian.github.io/LandingLayout/dist/**)
 
 <br>
 
